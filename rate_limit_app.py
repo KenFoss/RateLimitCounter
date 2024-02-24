@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from datetime import datetime
+from os import environ;
 
 app = Flask(__name__)
 
@@ -23,8 +24,10 @@ def index():
     if counter > 100:
         return jsonify({"message": "Access Denied"}), 403
     
+    AUTH_KEY  = environ.get('RECIPE_APP_AUTH')
+    
     # Otherwise, return the current count
-    return jsonify({"count": counter})
+    return jsonify({"auth_key": AUTH_KEY})
 
 if __name__ == '__main__':
     app.run(debug=True)
