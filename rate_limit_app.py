@@ -30,4 +30,4 @@ def index():
     return jsonify({"auth_key": AUTH_KEY})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=443)
