@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from datetime import datetime
 from os import environ;
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Global variable to store the counter value
 counter = 0
@@ -39,4 +41,4 @@ def recipe_auth():
     return jsonify({"auth_key": AUTH_KEY})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+  app.run(debug=True)
