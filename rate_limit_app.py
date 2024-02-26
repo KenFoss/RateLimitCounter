@@ -5,7 +5,15 @@ import boto3
 from os import environ;
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+
+# Define the list of allowed origins, including Postman and the specific URL
+allowed_origins = [
+    "http://127.0.0.1:3000",  # Postman
+    "https://recipeapp2-wvxo.onrender.com"  # Specific URL
+]
+
+# Configure CORS to allow requests from the specified origins
+CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
 # Initialize the DynamoDB client
 dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id=environ.get('ACCESS_ID'), aws_secret_access_key=environ.get('ACCESS_SECRET'))
