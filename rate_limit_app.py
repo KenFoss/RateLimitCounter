@@ -108,8 +108,8 @@ def recipe_auth():
     update_count_in_dynamodb(counter, current_datetime)
 
     # If the counter reaches 100, send "Access Denied"
-    if counter > 100:
-        return jsonify({"message": "Access Denied, too many requests"}), 403
+    if counter > 50:
+        return jsonify({"message": "Access Denied. This app is rate limited daily, try again tomorrow!"}), 403
     
     AUTH_KEY = environ.get('RECIPE_APP_AUTH')
     
