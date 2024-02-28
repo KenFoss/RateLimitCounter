@@ -11,7 +11,7 @@ allowed_origins = [
     "http://127.0.0.1:3000",  # Postman
     "https://recipeapp2-wvxo.onrender.com" , # Specific URL
     "http://172.17.32.1",
-    "http://127.0.0.1"
+    "http://172.17.34.30:3000"
 ]
 
 # Configure CORS to allow requests from the specified origins
