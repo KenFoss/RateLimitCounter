@@ -9,7 +9,9 @@ app = Flask(__name__)
 # Define the list of allowed origins, including Postman and the specific URL
 allowed_origins = [
     "http://127.0.0.1:3000",  # Postman
-    "https://recipeapp2-wvxo.onrender.com"  # Specific URL
+    "https://recipeapp2-wvxo.onrender.com" , # Specific URL
+    "http://172.17.32.1",
+    "http://127.0.0.1"
 ]
 
 # Configure CORS to allow requests from the specified origins
